@@ -1,0 +1,165 @@
+---
+title: "Bellabeat CaseStudy"
+author: "Saleh Shuaib"
+date: "7/6/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+chooseCRANmirror(graphics=FALSE, ind=1)
+knitr::opts_chunk$set(echo = TRUE)
+```
+{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+# Intorduction 
+
+This is a  google certificate capstone analysis for bellabeat, a high-tech company that manufactures health-focused smart products . We want to find insights and trends on how people use non-bellabeat health devices. Once we find these insgits we wil apply it on bellabeat products. This will help stakeholders make data driven decisions on how to makret thier product
+
+
+##Installing packages and libraries we need 
+```{r}
+install.packages("lmtest", repos = "http://cran.us.r-project.org")
+install.packages('tidyverse')
+library(tidyverse)
+library(dplyr)
+install.packages("lubridate")
+library(lubridate)
+```
+
+##daily_activity
+
+```{r}
+daily_activity <- read.csv('dailyActivity_merged.csv')
+head(daily_activity)
+colnames(daily_activity)
+glimpse(daily_activity)
+summary(daily_activity)
+```
+
+
+##hourly_calories
+```{r}
+hourly_calories <- read.csv('hourlyCalories_merged.csv')
+head(hourly_calories)
+summary(hourly_calories)
+```
+##hourly_intensities
+```{r}
+hourly_intensities <- read.csv('hourlyIntensities_merged.csv')
+head(hourly_intensities)
+colnames(hourly_intensities)
+glimpse(hourly_intensities)
+summary(hourly_intensities)
+```
+
+##hourly-steps 
+```{r}
+hourly_steps <- read.csv('hourlySteps_merged.csv')
+head(hourly_steps)
+colnames(hourly_steps)
+summary(hourly_steps)
+```
+
+##minuteSteps
+```{r}
+minute_steps <- read.csv('minuteStepsNarrow_merged.csv')
+minute_steps_1 <- minute_steps %>% 
+separate(ActivityMinute, into = c("Date", "Time"), sep = " ", remove = FALSE) %>%
+  mutate(Date = lubridate::as_date(Date, format = "%m/%d/%Y"),
+         Time = hms::as_hms(str_c(Time, ":00")))
+
+minute_steps_1$day <- weekdays(as.Date(minute_steps_1$Date))
+summary(minute_steps_1)
+```
+
+#Analysis
+
+## How many unique member Id's are there in each of the data frames 
+```{r}
+n_distinct(hourly_intensities$Id)
+n_distinct(hourly_calories$Id)
+n_distinct(hourly_steps$Id)
+```
+
+
+## Merging hourly_calories, hourly_intensities and hourly_steps into one data frame. 
+ we will call the new merged data frame 'hourly_merge)
+```{r}
+merge_1 <- merge(hourly_calories, hourly_intensities, by=c("Id","ActivityHour"))
+head(merge_1)
+glimpse(merge_1)
+merge_2 <-  merge(merge_1, hourly_steps, by=c("Id","ActivityHour"))
+head(merge_2)
+glimpse(merge_2)
+```
+
+## Splitting ActivityHour column into two columns; Date & Time 
+```{r}
+hourly_merge <- merge_2 %>% 
+  separate(ActivityHour, into = c("Date", "Time"), sep = " ", remove = FALSE) %>%
+  mutate(Date = lubridate::as_date(Date, format = "%m/%d/%Y"),
+         Time = hms::as_hms(str_c(Time, ":00")))
+
+head(hourly_merge)
+glimpse(hourly_merge)
+head(hourly_merge)
+summary(hourly_merge)
+```
+## Sorting our data frame by Date and Time 
+```{r}
+hourly_merge_1 <- hourly_merge%>% arrange(hourly_merge$Date)
+hourly_merge_2 <- hourly_merge_1 %>% arrange(hourly_merge_1$Time)
+head(hourly_merge_2)
+View(hourly_merge_2)
+```
+
+## saving our data frame into csv  file to export it to Tableau
+```{r}
+write.table(hourly_merge_2, "hourly_merge_final.csv", row.names=FALSE, sep=",")
+```
+
+## Grouping and aggregating the data 
+```{r}
+df <- hourly_merge_2 %>% group_by(Id)
+head(df)
+sapply(df, class)
+```
+
+```{r}
+df1 <- df                                             
+df1$Id <- as.character(df1$Id) #changing Id column from integer to character
+sapply(df1, class)
+```
+
+```{r}
+df2 <- df1 %>% group_by(Id) %>% summarise(Value = max(TotalIntensity))  
+colnames(df2)
+View(df2)
+sapply(df2, class)
+glimpse(df2)
+```
+```{r}
+require(data.table)
+df1 <- as.data.table(df)
+df3 <- df1[df1[, .I[StepTotal == max(StepTotal)], by=Id]$V1]
+head(df3)
+View(df3)
+sapply(df3, class)
+colnames(df3)
+glimpse(df3)
+max(df3$Calories)
+df3[which.max(df3$Calories),]
+df3[which.min(df3$Calories),]
+summary(df3)
+write.csv(x=df3, file="vizzitable")##saving df3 into csv to export into tableau
+```
+
+## plotting for data exploration 
+```{r}
+ggplot(data=daily_activity, aes(x=TotalSteps, y = Calories))+ geom_point() + stat_smooth(method=lm)
+ggplot(data=df3, aes(x=StepTotal, y = Calories)) + geom_point()
+```
+
