@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taibah Horizon Tech</title>
+<meta name="description" content="Taibah Horizon Tech Establishment designs, builds and runs cloud, network, integration, software and AI systems for businesses in Saudi Arabia and the Gulf.">
+<meta name="theme-color" content="#0B2A30">
+<meta property="og:title" content="Taibah Horizon Tech">
+<meta property="og:description" content="Cloud, networks, integration, software, AI and machine learning for businesses in Saudi Arabia and the Gulf.">
+<meta property="og:image" content="assets/brand/taibah-logo-reversed@2x.png">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Readex+Pro:wght@400;500;700&display=swap">
+<style>
+:root{
+  --night:#0B2A30; --night-2:#0E3239; --night-3:#123C44; --deep:#071D22;
+  --gold:#D9A94A; --gold-hi:#F0CF7E; --gold-ink:#8A6419;
+  --cream:#F3EEDF; --cream-2:#EAE3CF; --arc:#5E8A8C; --line:#C9C6BA;
+  /* page surfaces (light) */
+  --bg:#F3EEDF; --bg-2:#EAE3CF; --ink:#0E2328; --ink-2:#4A5F62; --rule:#CFC6AE; --tag-bg:#E4DCC5;
+  --accent-ink:#8A6419;
+  --f-display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --gut:clamp(16px,4vw,48px);
+  --max:1240px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0A2227; --bg-2:#0D2A30; --ink:#EDE7D6; --ink-2:#9FB2B1; --rule:#23454B; --tag-bg:#133A41; --accent-ink:#E2B65C;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0A2227; --bg-2:#0D2A30; --ink:#EDE7D6; --ink-2:#9FB2B1; --rule:#23454B; --tag-bg:#133A41; --accent-ink:#E2B65C;
+}
+html[lang="ar"]{
+  --f-display:"Readex Pro", "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --f-body:"IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;letter-spacing:-.02em;text-wrap:balance;margin:0}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{letter-spacing:0;line-height:1.3}
+p{margin:0}
+.tag{display:inline-flex;align-items:center;gap:.6em;font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:.55em .75em;background:var(--tag-bg);color:var(--ink)}
+html[lang="ar"] .tag{font-family:var(--f-body);letter-spacing:0;font-size:13px}
+.tag i{width:7px;height:7px;background:var(--gold);display:inline-block}
+.arr{display:inline-block;transition:transform .2s}
+[dir="rtl"] .arr{transform:scaleX(-1)}
+
+/* buttons: square-arrow block, from the Sui reference, in gold */
+.btn{display:inline-flex;align-items:stretch;text-decoration:none;font:500 15px/1 var(--f-body);border:0;cursor:pointer;padding:0;background:none;color:inherit}
+.btn .ic{display:grid;place-items:center;width:44px;background:var(--gold);color:var(--deep)}
+.btn .tx{display:flex;align-items:center;padding:0 18px;height:44px;background:var(--cream);color:var(--deep)}
+.btn.ghost .tx{background:transparent;color:var(--cream);box-shadow:inset 0 0 0 1px rgba(243,238,223,.35)}
+.btn:hover .ic{background:var(--gold-hi)}
+.btn:hover .arr{transform:translateX(3px)}
+[dir="rtl"] .btn:hover .arr{transform:scaleX(-1) translateX(3px)}
+
+/* ---------- header ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(11,42,48,.92);backdrop-filter:blur(10px);color:var(--cream);border-bottom:1px solid rgba(243,238,223,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream)}
+.brand svg.m{width:44px;height:25px}
+.brand svg.w{height:40px;width:82px}
+nav.links{display:flex;gap:28px;font-size:14px}
+nav.links a{text-decoration:none;opacity:.8}
+nav.links a:hover{opacity:1;color:var(--gold-hi)}
+.lang{font:500 13px/1 var(--f-mono);background:none;color:var(--cream);border:1px solid rgba(243,238,223,.3);padding:9px 12px;cursor:pointer}
+.lang:hover{border-color:var(--gold)}
+.lang .alt{font-family:"IBM Plex Sans Arabic",sans-serif;font-size:14px}
+@media (max-width:860px){nav.links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--night);color:var(--cream);position:relative;overflow:hidden;padding-block:clamp(56px,9vw,112px) 0}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:40px;align-items:end}
+.hero .tag{background:rgba(243,238,223,.08);color:var(--cream)}
+.hero h1{font-size:clamp(40px,7.2vw,96px);line-height:.98;margin-top:28px;font-weight:500}
+html[lang="ar"] .hero h1{line-height:1.2;font-size:clamp(36px,6vw,80px)}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lede{max-width:52ch;color:rgba(243,238,223,.78);font-size:clamp(16px,1.4vw,18px);margin-top:28px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.readout{border:1px solid rgba(243,238,223,.14);background:rgba(7,29,34,.5);font:400 12.5px/1.5 var(--f-mono);color:rgba(243,238,223,.75)}
+.readout .row{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid rgba(243,238,223,.1)}
+.readout .row:first-child{border-top:0}
+.readout b{font-weight:500;color:var(--cream);font-variant-numeric:tabular-nums}
+.readout .live{display:inline-flex;align-items:center;gap:8px}
+.readout .live::before{content:"";width:7px;height:7px;background:#7FC8A9;border-radius:50%;animation:pulse 2s infinite}
+html[lang="ar"] .readout{font-family:var(--f-body)}
+@keyframes pulse{50%{opacity:.3}}
+
+/* horizon: the orchestrated moment */
+.horizon{--p:1;position:relative;overflow:hidden;height:clamp(150px,22vw,280px);margin-top:clamp(48px,7vw,88px)}
+.horizon .sun{position:absolute;left:50%;bottom:0;width:clamp(180px,30vw,380px);aspect-ratio:2/1;max-width:100%;transform:translateX(-50%);overflow:hidden}
+.horizon .sun::before{content:"";position:absolute;inset:0 0 -100% 0;border-radius:50%;background:radial-gradient(circle at 50% 30%,var(--gold-hi),var(--gold) 45%,#B98A2E 80%);transform:translateY(calc((1 - var(--p)) * 45%));will-change:transform}
+.horizon .glow{position:absolute;left:50%;bottom:0;width:90vw;max-width:1100px;height:120%;transform:translateX(-50%);background:radial-gradient(ellipse at 50% 100%,rgba(217,169,74,.28),transparent 60%);pointer-events:none;opacity:calc(.25 + .75 * var(--p))}
+.horizon .arcline{position:absolute;left:50%;bottom:0;width:clamp(240px,40vw,500px);aspect-ratio:2/1;max-width:100%;transform:translateX(-50%) translateY(calc((1 - var(--p)) * 70%)) scale(calc(.8 + .2 * var(--p)));transform-origin:50% 100%;border:2px solid var(--arc);border-bottom:0;border-radius:999px 999px 0 0;opacity:calc(.2 + .7 * var(--p));will-change:transform}
+.horizon .ground{position:absolute;inset-inline:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--line) 20%,var(--line) 80%,transparent)}
+.horizon .ticks{position:absolute;inset-inline:0;bottom:10px;display:flex;justify-content:space-between;font:400 11px/1 var(--f-mono);color:rgba(243,238,223,.4);padding-inline:var(--gut)}
+
+/* marquee */
+.marq{background:var(--deep);color:rgba(243,238,223,.65);overflow:hidden;border-top:1px solid rgba(243,238,223,.08)}
+.marq .track{display:flex;gap:48px;width:max-content;padding-block:18px;animation:slide 40s linear infinite;font:500 13px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase}
+html[lang="ar"] .marq .track{font-family:var(--f-body);letter-spacing:0;font-size:15px}
+.marq span{display:inline-flex;align-items:center;gap:48px;white-space:nowrap}
+.marq span::after{content:"";width:6px;height:6px;background:var(--gold);transform:rotate(45deg)}
+@keyframes slide{to{transform:translateX(-50%)}}
+[dir="rtl"] .marq .track{animation-name:slideR}
+@keyframes slideR{to{transform:translateX(50%)}}
+
+/* ---------- sections ---------- */
+section.block{padding-block:clamp(72px,10vw,136px)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 64px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.head h2{font-size:clamp(32px,4.6vw,60px);line-height:1.02;margin-top:20px}
+html[lang="ar"] .head h2{line-height:1.25}
+.head p{color:var(--ink-2);max-width:48ch;font-size:17px}
+@media (max-width:760px){.head{grid-template-columns:1fr}.hero .grid{grid-template-columns:1fr}}
+
+/* services index */
+.svc{border-top:1px solid var(--ink)}
+.svc details{border-bottom:1px solid var(--rule)}
+.svc summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) 44px;gap:24px;align-items:center;padding-block:26px}
+.svc summary::-webkit-details-marker{display:none}
+.svc summary h3{font-size:clamp(22px,2.6vw,34px);line-height:1.1}
+.svc summary p{color:var(--ink-2);font-size:15.5px}
+.svc .pm{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--rule);font:400 20px/1 var(--f-mono);transition:background .2s,transform .3s}
+.svc details[open] .pm{background:var(--gold);border-color:var(--gold);color:var(--deep);transform:rotate(45deg)}
+.svc summary:hover h3{color:var(--accent-ink)}
+.svc .body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px 48px;padding-bottom:36px}
+.svc .body .ov{max-width:56ch;color:var(--ink)}
+.svc .body h4{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin:0 0 12px}
+html[lang="ar"] .svc .body h4{font-family:var(--f-body);letter-spacing:0;font-size:13px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips li{list-style:none;font-size:14px;padding:6px 10px;border:1px solid var(--rule)}
+.chips{padding:0;margin:0 0 24px}
+.uses{padding:0;margin:0;display:grid;gap:8px}
+.uses li{list-style:none;display:flex;gap:10px;font-size:15px}
+.uses li::before{content:"";flex:none;width:10px;height:5px;margin-top:.7em;background:var(--gold);border-radius:10px 10px 0 0}
+.svc details.soon summary{cursor:default;opacity:.62}
+.svc details.soon .pm{border-style:dashed;font-size:11px;width:auto;padding:0 10px;white-space:nowrap}
+@media (max-width:760px){.svc summary{grid-template-columns:minmax(0,1fr) 44px}.svc summary p{grid-column:1;grid-row:2}.svc .pm{grid-row:1/3;grid-column:2}.svc .body{grid-template-columns:1fr}}
+
+/* approach: dotted spine, alternating instrument cards */
+.approach{background:var(--night);color:var(--cream)}
+.approach .tag{background:rgba(243,238,223,.08);color:var(--cream)}
+.approach .head p{color:rgba(243,238,223,.7)}
+.spine{position:relative;display:grid;gap:40px}
+.spine::before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:2px dotted rgba(243,238,223,.35)}
+[dir="rtl"] .spine::before{left:auto;right:50%}
+.step{position:relative;width:calc(50% - 48px);background:var(--night-2);border:1px solid rgba(243,238,223,.14)}
+.step:nth-child(even){margin-inline-start:auto}
+.step::after{content:"";position:absolute;top:30px;width:12px;height:12px;background:var(--cream);inset-inline-end:-55px}
+.step:nth-child(even)::after{inset-inline-end:auto;inset-inline-start:-55px}
+.step .hd{display:flex;align-items:center;gap:14px;padding:14px 16px;border-bottom:1px solid rgba(243,238,223,.12);font:500 13.5px/1.3 var(--f-mono);letter-spacing:.02em}
+html[lang="ar"] .step .hd{font-family:var(--f-body);font-size:15px}
+.step .no{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(243,238,223,.3);font-family:var(--f-mono)}
+.step .bd{padding:22px 16px 24px 68px;color:rgba(243,238,223,.78);position:relative}
+[dir="rtl"] .step .bd{padding:22px 68px 24px 16px}
+.step .bd::before{content:"";position:absolute;top:0;bottom:36px;inset-inline-start:34px;border-inline-start:1px solid rgba(243,238,223,.3)}
+.step .bd::after{content:"";position:absolute;bottom:36px;inset-inline-start:34px;width:18px;border-top:1px solid rgba(243,238,223,.3)}
+.step .out{display:block;margin-top:14px;font:400 12px/1.4 var(--f-mono);color:var(--gold)}
+html[lang="ar"] .step .out{font-family:var(--f-body);font-size:13px}
+@media (max-width:760px){.spine::before{left:8px}[dir="rtl"] .spine::before{right:8px}.step,.step:nth-child(even){width:auto;margin-inline-start:32px}.step::after,.step:nth-child(even)::after{inset-inline-start:-30px;inset-inline-end:auto}}
+
+/* principles */
+.prin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.prin div{padding:28px 24px 8px 0;border-inline-end:1px solid var(--rule)}
+.prin div + div{padding-inline-start:24px}
+.prin div:last-child{border-inline-end:0}
+.prin h3{font-size:22px;line-height:1.15;margin-bottom:12px}
+.prin p{color:var(--ink-2);font-size:15px}
+.prin svg{width:40px;height:22px;margin-bottom:28px}
+@media (max-width:760px){.prin{grid-template-columns:1fr}.prin div{border-inline-end:0;padding-inline-start:0!important}}
+
+/* industries */
+.ind{background:var(--bg-2)}
+.ind ul{display:flex;flex-wrap:wrap;gap:0;padding:0;margin:0;border-top:1px solid var(--rule);border-inline-start:1px solid var(--rule)}
+.ind li{list-style:none;flex:1 1 240px;padding:22px 20px;border-inline-end:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--f-display);font-size:clamp(18px,1.8vw,22px);display:flex;justify-content:space-between;gap:12px}
+.ind li small{font:400 11px/2 var(--f-mono);color:var(--ink-2)}
+
+/* contact */
+.contact .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:48px}
+@media (max-width:860px){.contact .grid{grid-template-columns:1fr}}
+.facts{display:grid;gap:0;border-top:1px solid var(--ink)}
+.facts div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding-block:16px;border-bottom:1px solid var(--rule)}
+.facts dt{font:500 12px/1.6 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+html[lang="ar"] .facts dt{font-family:var(--f-body);letter-spacing:0;font-size:13px}
+.facts dd{margin:0}
+.ph{background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(217,169,74,.14) 6px 12px);padding:1px 6px;font-family:var(--f-mono);font-size:14px;direction:ltr;unicode-bidi:isolate}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--night);color:var(--cream);padding:clamp(20px,3vw,36px)}
+form .full{grid-column:1/-1}
+form label{display:grid;gap:8px;font:500 12px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:rgba(243,238,223,.7)}
+html[lang="ar"] form label{font-family:var(--f-body);letter-spacing:0;font-size:13px}
+form input,form select,form textarea{font:400 15px/1.4 var(--f-body);color:var(--cream);background:var(--night-2);border:1px solid rgba(243,238,223,.18);padding:12px;border-radius:0;width:100%}
+form textarea{min-height:110px;resize:vertical}
+form input:focus,form select:focus,form textarea:focus{outline:none;border-color:var(--gold)}
+form select option{background:var(--night)}
+form .foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+form .note{font-size:13px;color:rgba(243,238,223,.6)}
+@media (max-width:560px){form{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--deep);color:rgba(243,238,223,.7);padding-block:64px 0;overflow:hidden}
+footer .cols{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:40px;font-size:14px}
+footer h4{font:500 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+html[lang="ar"] footer h4{font-family:var(--f-body);letter-spacing:0}
+footer ul{padding:0;margin:0;display:grid;gap:8px}
+footer li{list-style:none}
+footer .big{display:block;width:100%;height:auto;margin-top:64px;color:var(--night-3);margin-bottom:-2%}
+footer .legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font:400 12px/1 var(--f-mono);padding-block:20px;border-top:1px solid rgba(243,238,223,.1);position:relative}
+@media (max-width:760px){footer .cols{grid-template-columns:1fr}}
+
+.draft{background:var(--gold);color:var(--deep);font:500 12px/1.4 var(--f-mono);text-align:center;padding:8px var(--gut)}
+html[lang="ar"] .draft{font-family:var(--f-body)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0CF7E"/><stop offset=".55" stop-color="#D9A94A"/><stop offset="1" stop-color="#B98A2E"/></linearGradient><clipPath id="abv"><rect x="0" y="0" width="720" height="300"/></clipPath></defs>
+<symbol id="mark" viewBox="303 245 114 64"><path d="M319 291 A42 42 0 0 1 401 291" fill="none" stroke="var(--arc)" stroke-width="4" stroke-linecap="round"/><circle cx="360" cy="300" r="33" fill="url(#sunG)" clip-path="url(#abv)"/><rect x="307" y="299" width="106" height="6" rx="3" fill="var(--line)"/></symbol>
+<symbol id="word" viewBox="248 402 222 108"><path d="M273.46 455L264.22 455L264.22 414.40L249.94 414.40L249.94 406L287.74 406L287.74 414.40L273.46 414.40M304.10 455.98Q300.39 455.98 297.45 454.69Q294.51 453.39 292.79 450.90Q291.08 448.42 291.08 444.85Q291.08 441.28 292.79 438.87Q294.51 436.45 297.55 435.23Q300.60 434 304.52 434L314.04 434L314.04 432.04Q314.04 429.59 312.50 428.01Q310.96 426.44 307.60 426.44Q304.31 426.44 302.70 427.94Q301.09 429.45 300.60 431.83L292.48 429.10Q293.32 426.44 295.17 424.24Q297.03 422.03 300.14 420.67Q303.26 419.30 307.74 419.30Q314.60 419.30 318.59 422.73Q322.58 426.16 322.58 432.67L322.58 445.62Q322.58 447.72 324.54 447.72L327.34 447.72L327.34 455L321.46 455Q318.87 455 317.19 453.74Q315.51 452.48 315.51 450.38L315.51 450.31L314.18 450.31Q313.90 451.15 312.92 452.51Q311.94 453.88 309.84 454.93Q307.74 455.98 304.10 455.98M305.64 448.84Q309.35 448.84 311.69 446.77Q314.04 444.71 314.04 441.28L314.04 440.58L305.15 440.58Q302.70 440.58 301.30 441.63Q299.90 442.68 299.90 444.57Q299.90 446.46 301.37 447.65Q302.84 448.84 305.64 448.84M341.60 455L332.78 455L332.78 420.28L341.60 420.28L341.60 455M337.19 416.22Q334.81 416.22 333.16 414.68Q331.52 413.14 331.52 410.62Q331.52 408.10 333.16 406.56Q334.81 405.02 337.19 405.02Q339.64 405.02 341.25 406.56Q342.86 408.10 342.86 410.62Q342.86 413.14 341.25 414.68Q339.64 416.22 337.19 416.22M371.26 455.98Q366.57 455.98 364.05 454.37Q361.53 452.76 360.34 450.80L359.08 450.80L359.08 455L350.40 455L350.40 406L359.22 406L359.22 424.27L360.48 424.27Q361.25 423.01 362.54 421.89Q363.84 420.77 365.97 420.03Q368.11 419.30 371.26 419.30Q375.46 419.30 379.03 421.37Q382.60 423.43 384.77 427.42Q386.94 431.41 386.94 437.08L386.94 438.20Q386.94 443.87 384.77 447.86Q382.60 451.85 379.03 453.92Q375.46 455.98 371.26 455.98M368.60 448.28Q372.66 448.28 375.39 445.65Q378.12 443.03 378.12 437.99L378.12 437.29Q378.12 432.25 375.42 429.63Q372.73 427 368.60 427Q364.54 427 361.81 429.63Q359.08 432.25 359.08 437.29L359.08 437.99Q359.08 443.03 361.81 445.65Q364.54 448.28 368.60 448.28M404.84 455.98Q401.13 455.98 398.19 454.69Q395.25 453.39 393.53 450.90Q391.82 448.42 391.82 444.85Q391.82 441.28 393.53 438.87Q395.25 436.45 398.29 435.23Q401.34 434 405.26 434L414.78 434L414.78 432.04Q414.78 429.59 413.24 428.01Q411.70 426.44 408.34 426.44Q405.05 426.44 403.44 427.94Q401.83 429.45 401.34 431.83L393.22 429.10Q394.06 426.44 395.91 424.24Q397.77 422.03 400.88 420.67Q404 419.30 408.48 419.30Q415.34 419.30 419.33 422.73Q423.32 426.16 423.32 432.67L423.32 445.62Q423.32 447.72 425.28 447.72L428.08 447.72L428.08 455L422.20 455Q419.61 455 417.93 453.74Q416.25 452.48 416.25 450.38L416.25 450.31L414.92 450.31Q414.64 451.15 413.66 452.51Q412.68 453.88 410.58 454.93Q408.48 455.98 404.84 455.98M406.38 448.84Q410.09 448.84 412.43 446.77Q414.78 444.71 414.78 441.28L414.78 440.58L405.89 440.58Q403.44 440.58 402.04 441.63Q400.64 442.68 400.64 444.57Q400.64 446.46 402.11 447.65Q403.58 448.84 406.38 448.84M442.34 455L433.52 455L433.52 406L442.34 406L442.34 424.55L443.60 424.55Q444.16 423.43 445.35 422.31Q446.54 421.19 448.53 420.45Q450.53 419.72 453.61 419.72Q457.67 419.72 460.71 421.57Q463.76 423.43 465.44 426.69Q467.12 429.94 467.12 434.28L467.12 455L458.30 455L458.30 434.98Q458.30 431.06 456.37 429.10Q454.45 427.14 450.88 427.14Q446.82 427.14 444.58 429.83Q442.34 432.53 442.34 437.36" fill="currentColor"/><path d="M264.43 508L262.37 508L262.37 494.70L264.43 494.70L264.43 500.40L270.01 500.40L270.01 494.70L272.06 494.70L272.06 508L270.01 508L270.01 502.26L264.43 502.26M286.03 508.27Q283.58 508.27 282.14 506.89Q280.70 505.51 280.70 502.91L280.70 499.79Q280.70 497.19 282.14 495.81Q283.58 494.43 286.03 494.43Q288.49 494.43 289.94 495.81Q291.39 497.19 291.39 499.79L291.39 502.91Q291.39 505.51 289.94 506.89Q288.49 508.27 286.03 508.27M286.03 506.42Q287.61 506.42 288.47 505.50Q289.32 504.58 289.32 502.98L289.32 499.72Q289.32 498.12 288.47 497.20Q287.61 496.28 286.03 496.28Q284.50 496.28 283.62 497.20Q282.75 498.12 282.75 499.72L282.75 502.98Q282.75 504.58 283.62 505.50Q284.50 506.42 286.03 506.42M302.08 508L300.02 508L300.02 494.70L305.61 494.70Q306.85 494.70 307.79 495.13Q308.73 495.56 309.25 496.35Q309.77 497.15 309.77 498.25L309.77 498.46Q309.77 499.72 309.17 500.47Q308.57 501.22 307.72 501.52L307.72 501.82Q308.44 501.86 308.88 502.31Q309.32 502.76 309.32 503.59L309.32 508L307.24 508L307.24 503.88Q307.24 503.36 306.98 503.06Q306.71 502.76 306.12 502.76L302.08 502.76L302.08 508M302.08 496.56L302.08 500.89L305.38 500.89Q306.48 500.89 307.09 500.33Q307.70 499.77 307.70 498.80L307.70 498.65Q307.70 497.68 307.10 497.12Q306.50 496.56 305.38 496.56M320.28 508L318.23 508L318.23 494.70L320.28 494.70M337.96 508L328.78 508L328.78 505.34L335.78 496.81L335.78 496.54L328.99 496.54L328.99 494.70L337.88 494.70L337.88 497.36L330.89 505.89L330.89 506.16L337.96 506.16M351.42 508.27Q348.97 508.27 347.52 506.89Q346.08 505.51 346.08 502.91L346.08 499.79Q346.08 497.19 347.52 495.81Q348.97 494.43 351.42 494.43Q353.87 494.43 355.32 495.81Q356.78 497.19 356.78 499.79L356.78 502.91Q356.78 505.51 355.32 506.89Q353.87 508.27 351.42 508.27M351.42 506.42Q353 506.42 353.85 505.50Q354.71 504.58 354.71 502.98L354.71 499.72Q354.71 498.12 353.85 497.20Q353 496.28 351.42 496.28Q349.88 496.28 349.01 497.20Q348.13 498.12 348.13 499.72L348.13 502.98Q348.13 504.58 349.01 505.50Q349.88 506.42 351.42 506.42M367.44 508L365.41 508L365.41 494.70L369.36 494.70L372.97 506.63L373.27 506.63L373.27 494.70L375.31 494.70L375.31 508L371.36 508L367.75 496.05L367.44 496.05M400.55 508L398.50 508L398.50 496.56L394.41 496.56L394.41 494.70L404.64 494.70L404.64 496.56L400.55 496.56M421.17 508L412.70 508L412.70 494.70L421.08 494.70L421.08 496.56L414.75 496.56L414.75 500.38L420.55 500.38L420.55 502.24L414.75 502.24L414.75 506.14L421.17 506.14M434.46 508.27Q432.03 508.27 430.60 506.89Q429.18 505.51 429.18 502.91L429.18 499.79Q429.18 497.19 430.60 495.81Q432.03 494.43 434.46 494.43Q436.85 494.43 438.16 495.76Q439.46 497.09 439.46 499.39L439.46 499.51L437.42 499.51L437.42 499.34Q437.42 497.99 436.69 497.13Q435.96 496.28 434.46 496.28Q432.94 496.28 432.08 497.20Q431.23 498.12 431.23 499.75L431.23 502.95Q431.23 504.56 432.08 505.49Q432.94 506.42 434.46 506.42Q435.96 506.42 436.69 505.56Q437.42 504.69 437.42 503.36L437.42 503.04L439.46 503.04L439.46 503.31Q439.46 505.61 438.16 506.94Q436.85 508.27 434.46 508.27M449.99 508L447.94 508L447.94 494.70L449.99 494.70L449.99 500.40L455.57 500.40L455.57 494.70L457.63 494.70L457.63 508L455.57 508L455.57 502.26L449.99 502.26" fill="#D9A94A"/></symbol></svg>
+
+<div class="draft" data-i18n="draft">Design draft · contact details are placeholders</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Taibah Horizon Tech">
+      <svg class="m" aria-hidden="true"><use href="#mark"/></svg>
+      <svg class="w" aria-hidden="true"><use href="#word"/></svg>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#approach" data-i18n="nav.approach">Approach</a>
+      <a href="#why" data-i18n="nav.why">Why us</a>
+      <a href="#industries" data-i18n="nav.industries">Industries</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <button class="lang" id="langBtn" type="button"><span class="alt">العربية</span></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="tag"><i></i><span data-i18n="hero.tag">IT infrastructure · Software · Integration</span></span>
+      <h1 data-i18n-html="hero.h1">Technology built for the <em>horizon</em> ahead of you.</h1>
+      <p class="lede" data-i18n="hero.lede">Taibah Horizon Tech designs, builds and runs the systems businesses depend on: cloud and servers, networks, integrations, custom software and support.</p>
+      <div class="ctas">
+        <a class="btn" href="#contact"><span class="ic"><span class="arr">→</span></span><span class="tx" data-i18n="cta.talk">Talk to an engineer</span></a>
+        <a class="btn ghost" href="#services"><span class="ic"><span class="arr">→</span></span><span class="tx" data-i18n="cta.explore">Explore services</span></a>
+      </div>
+    </div>
+    <div class="readout" aria-label="Company details">
+      <div class="row"><span data-i18n="ro.time">Local time · KSA</span><b class="live" id="clock">--:--</b></div>
+      <div class="row"><span data-i18n="ro.days">Working days</span><b data-i18n="ro.daysv">Sat – Thu</b></div>
+      <div class="row"><span data-i18n="ro.prac">Practices</span><b data-i18n="ro.pracv">10 active · 1 planned</b></div>
+    </div>
+  </div>
+  <div class="horizon" aria-hidden="true">
+    <div class="glow"></div>
+    <div class="arcline"></div>
+    <div class="sun"></div>
+    <div class="ground"></div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="track" id="marq"></div></div>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="tag"><i></i><span data-i18n="svc.tag">What we do</span></span>
+        <h2 data-i18n="svc.h2">Ten practices, one accountable team.</h2>
+      </div>
+      <p data-i18n="svc.p">Every engagement has a named engineer, a written design and clear escalation paths. Open any practice to see what it covers.</p>
+    </div>
+    <div class="svc" id="svcList"></div>
+  </div>
+</section>
+
+<section class="block approach" id="approach">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="tag"><i></i><span data-i18n="ap.tag">How we work</span></span>
+        <h2 data-i18n="ap.h2">From first survey to steady operation.</h2>
+      </div>
+      <p data-i18n="ap.p">Four stages, each ending with something you can hold: a report, a plan, a working system, a monthly review.</p>
+    </div>
+    <div class="spine" id="spine"></div>
+  </div>
+</section>
+
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="tag"><i></i><span data-i18n="why.tag">Why Taibah Horizon</span></span>
+        <h2 data-i18n="why.h2">Technology you can stop worrying about.</h2>
+      </div>
+      <p data-i18n="why.p">We work with teams where an hour of downtime has a real cost, so reliability is part of the design from the first day.</p>
+    </div>
+    <div class="prin" id="prin"></div>
+  </div>
+</section>
+
+<section class="block ind" id="industries">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="tag"><i></i><span data-i18n="ind.tag">Industries</span></span>
+        <h2 data-i18n="ind.h2">Environments we know well.</h2>
+      </div>
+      <p data-i18n="ind.p">We adapt the same engineering discipline to the rules and rhythms of each sector.</p>
+    </div>
+    <ul id="indList"></ul>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="tag"><i></i><span data-i18n="ct.tag">Contact</span></span>
+        <h2 data-i18n="ct.h2">Tell us what you are planning, or what is breaking.</h2>
+      </div>
+      <p data-i18n="ct.p">Send a short brief and a senior engineer will reply within one business day.</p>
+    </div>
+    <div class="grid">
+      <dl class="facts">
+        <div><dt data-i18n="ct.email">Email</dt><dd><span class="ph">info@[your-domain]</span></dd></div>
+        <div><dt data-i18n="ct.phone">Phone</dt><dd><span class="ph">+966 5X XXX XXXX</span></dd></div>
+        <div><dt data-i18n="ct.office">Office</dt><dd><span class="ph" data-i18n="ct.officev">[Street, district, city], Saudi Arabia</span></dd></div>
+        <div><dt data-i18n="ct.hours">Hours</dt><dd data-i18n="ct.hoursv">Saturday to Thursday · [hours to confirm]</dd></div>
+      </dl>
+      <form id="form" novalidate>
+        <label><span data-i18n="f.name">Full name</span><input id="f-name" name="name" autocomplete="name"></label>
+        <label><span data-i18n="f.company">Company</span><input id="f-company" name="company" autocomplete="organization"></label>
+        <label><span data-i18n="f.email">Work email</span><input id="f-email" name="email" type="email" autocomplete="email"></label>
+        <label><span data-i18n="f.phone">Phone</span><input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        <label class="full"><span data-i18n="f.need">What do you need?</span><select id="f-need" name="need"></select></label>
+        <label class="full"><span data-i18n="f.msg">Tell us about your setup</span><textarea id="f-msg" name="msg"></textarea></label>
+        <div class="full foot">
+          <button class="btn" type="submit"><span class="ic"><span class="arr">→</span></span><span class="tx" data-i18n="f.send">Send request</span></button>
+          <span class="note" id="fnote" role="status" data-i18n="f.note">A real engineer replies, not an autoresponder.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4 data-i18n="ft.about">Taibah Horizon Tech Establishment</h4>
+        <p data-i18n="ft.aboutp" style="max-width:40ch">Managed IT, cloud, integration and software engineering for businesses in Saudi Arabia and the Gulf.</p>
+      </div>
+      <div><h4 data-i18n="nav.services">Services</h4><ul id="ftSvc"></ul></div>
+      <div><h4 data-i18n="ft.company">Company</h4><ul>
+        <li><a href="#approach" data-i18n="nav.approach">Approach</a></li>
+        <li><a href="#why" data-i18n="nav.why">Why us</a></li>
+        <li><a href="#industries" data-i18n="nav.industries">Industries</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul></div>
+    </div>
+    <svg class="big" viewBox="0 0 222 58" aria-hidden="true"><use href="#word" width="222" height="108"/></svg>
+    <div class="legal"><span data-i18n="ft.rights">© 2026 Taibah Horizon Tech Establishment</span><span data-i18n="ft.cr">CR No. [to be added]</span></div>
+  </div>
+</footer>
+
+<script>
+const SERVICES = {
+en: [
+ {t:"Cloud & Servers", s:"Cloud, hosted and dedicated servers sized to your real workload, and moved without taking you offline.",
+  o:"We start with a capacity and cost review, then choose the right mix of public cloud, private cloud and dedicated hardware. Migrations run in stages with a rollback plan, so your customers keep being served while workloads move behind them. Once live, the platform is monitored around the clock and reviewed every month.",
+  c:["Cloud platforms","Server hosting","Dedicated servers","Server management","Migrations"],
+  u:["Scaling a growing SaaS product beyond a single server","Retiring an ageing on-site server room","Keeping sensitive data on dedicated hardware while apps run in the cloud"]},
+ {t:"Infrastructure & Networking", s:"Structured, monitored networks for offices and branches that grow with your team.",
+  o:"User, guest, server and management traffic are kept apart, so a problem in one zone stays there. We handle cabling, switching, wireless, firewalls and VPNs, and hand over topology diagrams, an IP plan and a runbook, so the network always stays yours.",
+  c:["Office & branch networks","Switching & Wi-Fi","Site-to-site & remote VPN","Infrastructure management"],
+  u:["Fitting out a new office or headquarters","Replacing end-of-life switches and access points","Connecting branches to head office"]},
+ {t:"API & System Integration", s:"Your ERP, CRM, online store and accounting tools working from one version of the truth.",
+  o:"When every system keeps its own copy of the data, numbers drift and decisions suffer. We connect them with APIs and integration layers that include retries, logging and alerts, so a failed sync is noticed and recovered instead of silently lost.",
+  c:["API integration","System integration","Data synchronisation","Legacy system bridges"],
+  u:["Syncing stock, prices and orders between ERP and store","Sending invoices from CRM to accounting without re-typing","Connecting government and vendor APIs securely"]},
+ {t:"Software Development", s:"Web apps, mobile apps and internal tools, delivered in short cycles you can review.",
+  o:"A small, senior team shows you working software every two weeks, not a slide deck at the end. Testing and automated deployment are built in, and at handover you own the source code, the documentation and the pipeline.",
+  c:["Custom software","Web applications","iOS & Android apps","Business automation"],
+  u:["Replacing spreadsheet and email workflows","Self-service portals for customers or partners","Mobile apps for field teams"]},
+ {t:"AI Agents & Chatbots", s:"AI agents and chatbots that answer customers, handle routine tasks and work inside your existing systems.",
+  o:"We build AI agents that do more than chat: they look up orders, update records, draft replies and pass work to the right person when a human is needed. Each agent works within clear permissions, keeps a log of every action, and is connected to the tools you already use, such as your ERP, CRM and helpdesk.",
+  c:["AI agents & workflow automation","Customer service chatbots","Internal assistants for company documents & data","AI connected to ERP, CRM & helpdesk"],
+  u:["Answering customer questions at any hour","Automating repetitive back-office tasks","Letting staff find answers in policies and manuals"]},
+ {t:"Machine Learning Models", s:"Custom models trained on your own data to predict, classify and recognise.",
+  o:"We turn the data you already collect into models that support real decisions. Every project starts by checking that the data can answer the question, then moves to a model measured against clear accuracy targets. Once live, models are deployed, monitored and retrained as your data changes.",
+  c:["Predictive models","Image recognition","Classification models","Model deployment & monitoring"],
+  u:["Forecasting demand, sales or customer churn","Inspecting products or documents from images","Sorting tickets, transactions or records automatically"]},
+ {t:"B2B E-Commerce", s:"Ordering portals for trade customers, with their own prices, terms and order history.",
+  o:"Trade buyers need quantity breaks, credit terms, quotes and fast re-ordering. We build that into the platform and connect catalogue, stock and orders to your ERP, so each order flows straight into fulfilment and accounting.",
+  c:["B2B storefronts","Wholesale ordering","Tiered & customer pricing","ERP-connected catalogues"],
+  u:["Moving distributor orders off phone and email","Rolling out group pricing across a large catalogue","Connecting a trade store to SAP, Odoo or another ERP"]},
+ {t:"Call Center & VoIP", s:"Cloud phone systems with smart routing, call recording and live queue reports.",
+  o:"Agents keep the same extension in the office, at home or on the move. We design IVR menus, queues and routing around how your team actually handles calls, and supervisors see wait times, missed calls and performance as they happen.",
+  c:["Cloud PBX & SIP trunks","IVR & call routing","Call recording & QA","Softphones & headsets"],
+  u:["Support teams spread across several sites","Replacing an old on-site PBX","IVR self-service for common questions"]},
+ {t:"Backup & Disaster Recovery", s:"Backups that are restored on a schedule, so you know they work before you need them.",
+  o:"A backup that has never been restored is only a hope. Recovery point and recovery time objectives (RPO and RTO) are agreed in writing, off-site immutable copies protect against ransomware, and a step-by-step runbook guides your team under pressure.",
+  c:["Backup","Disaster recovery","Data protection","Business continuity"],
+  u:["Recovering from ransomware without paying","Restoring a failed production server","Meeting retention and audit requirements"]},
+ {t:"IT Consulting & Support", s:"Senior advice and hands-on help, from planned audits to urgent outages.",
+  o:"Sometimes you need an experienced engineer to make a call, not a full project. The engineers who build environments are the same ones who support them. Choose ad-hoc help, a monthly retainer or incident response.",
+  c:["IT consulting","Technical support","Infrastructure reviews","Troubleshooting & tuning"],
+  u:["Independent IT audit and assessment","Vendor-neutral technology selection","Ongoing support on a monthly retainer"]},
+ {t:"Cybersecurity", s:"A dedicated security practice is on our roadmap.", soon:true}
+],
+ar: [
+ {t:"الحوسبة السحابية والخوادم", s:"خوادم سحابية ومستضافة ومخصصة بحجم أعمالك الفعلي، ننقلها دون أن تتوقف خدماتك.",
+  o:"نبدأ بمراجعة السعة والتكلفة، ثم نختار المزيج المناسب من السحابة العامة والخاصة والخوادم المخصصة. تتم عمليات النقل على مراحل مع خطة للتراجع، فيبقى عملاؤك في خدمة متواصلة أثناء نقل الأنظمة. وبعد التشغيل نراقب المنصة على مدار الساعة ونراجعها شهريًا.",
+  c:["المنصات السحابية","استضافة الخوادم","الخوادم المخصصة","إدارة الخوادم","نقل الأنظمة"],
+  u:["توسيع منصة برمجية نامية إلى ما بعد خادم واحد","الاستغناء عن غرفة خوادم قديمة داخل المقر","حفظ البيانات الحساسة على خوادم مخصصة وتشغيل التطبيقات في السحابة"]},
+ {t:"البنية التحتية والشبكات", s:"شبكات منظمة ومراقَبة للمكاتب والفروع تنمو مع فريقك.",
+  o:"نفصل حركة المستخدمين والضيوف والخوادم والإدارة، فإذا حدث خلل في منطقة بقي فيها. نتولى التمديدات والمحولات والشبكات اللاسلكية والجدران النارية والشبكات الافتراضية الخاصة، ونسلمك مخططات الشبكة وخطة العناوين ودليل التشغيل لتبقى الشبكة ملكك دائمًا.",
+  c:["شبكات المكاتب والفروع","المحولات والواي فاي","VPN بين المواقع وعن بُعد","إدارة البنية التحتية"],
+  u:["تجهيز مكتب أو مقر رئيسي جديد","استبدال المحولات ونقاط الوصول المنتهية الدعم","ربط الفروع بالمقر الرئيسي"]},
+ {t:"ربط الأنظمة وواجهات API", s:"نظام تخطيط الموارد وإدارة العملاء والمتجر والمحاسبة تعمل من مصدر واحد للحقيقة.",
+  o:"حين يحتفظ كل نظام بنسخته الخاصة من البيانات، تختلف الأرقام وتتأثر القرارات. نربط أنظمتك بواجهات برمجية وطبقات تكامل تتضمن إعادة المحاولة والسجلات والتنبيهات، فأي خلل في المزامنة يُكتشف ويُعالج بدل أن يضيع بصمت.",
+  c:["تكامل واجهات API","تكامل الأنظمة","مزامنة البيانات","ربط الأنظمة القديمة"],
+  u:["مزامنة المخزون والأسعار والطلبات بين ERP والمتجر","نقل الفواتير من نظام العملاء إلى المحاسبة دون إعادة إدخال","ربط واجهات الجهات الحكومية والموردين بأمان"]},
+ {t:"تطوير البرمجيات", s:"تطبيقات ويب وجوال وأدوات داخلية، تُسلَّم على دورات قصيرة يمكنك مراجعتها.",
+  o:"فريق صغير من المهندسين ذوي الخبرة يعرض عليك برنامجًا يعمل كل أسبوعين، لا عرضًا تقديميًا في النهاية. الاختبار والنشر الآلي جزء من العمل، وعند التسليم تملك الشيفرة المصدرية والتوثيق وخط النشر.",
+  c:["برمجيات مخصصة","تطبيقات الويب","تطبيقات iOS وAndroid","أتمتة الأعمال"],
+  u:["استبدال الجداول والبريد في سير العمل","بوابات خدمة ذاتية للعملاء والشركاء","تطبيقات جوال للفرق الميدانية"]},
+ {t:"وكلاء الذكاء الاصطناعي وروبوتات المحادثة", s:"وكلاء ذكاء اصطناعي وروبوتات محادثة تجيب العملاء وتنجز المهام الروتينية وتعمل داخل أنظمتك الحالية.",
+  o:"نبني وكلاء ذكاء اصطناعي يتجاوز دورهم المحادثة: يبحثون عن الطلبات ويحدّثون السجلات ويكتبون مسودات الردود ويحيلون العمل إلى الشخص المناسب عند الحاجة إلى تدخل بشري. يعمل كل وكيل ضمن صلاحيات واضحة ويسجّل كل إجراء يقوم به، ويرتبط بالأدوات التي تستخدمها بالفعل مثل أنظمة ERP وإدارة العملاء والدعم الفني.",
+  c:["وكلاء الذكاء الاصطناعي وأتمتة سير العمل","روبوتات محادثة لخدمة العملاء","مساعدون داخليون لوثائق الشركة وبياناتها","ربط الذكاء الاصطناعي بأنظمة ERP وإدارة العملاء والدعم"],
+  u:["الرد على أسئلة العملاء في أي وقت","أتمتة المهام الإدارية المتكررة","تمكين الموظفين من إيجاد الإجابات في السياسات والأدلة"]},
+ {t:"نماذج تعلّم الآلة", s:"نماذج مخصصة مدرّبة على بياناتك للتنبؤ والتصنيف والتعرّف.",
+  o:"نحوّل البيانات التي تجمعها بالفعل إلى نماذج تدعم قرارات حقيقية. يبدأ كل مشروع بالتحقق من قدرة البيانات على الإجابة عن السؤال، ثم ننتقل إلى نموذج يُقاس بأهداف دقة واضحة. وبعد التشغيل نتولى نشر النماذج ومراقبتها وإعادة تدريبها مع تغيّر بياناتك.",
+  c:["النماذج التنبؤية","التعرّف على الصور","نماذج التصنيف","نشر النماذج ومراقبتها"],
+  u:["التنبؤ بالطلب أو المبيعات أو تسرّب العملاء","فحص المنتجات أو المستندات من خلال الصور","فرز التذاكر أو المعاملات أو السجلات تلقائيًا"]},
+ {t:"التجارة الإلكترونية بين الشركات", s:"بوابات طلب لعملاء الجملة بأسعارهم وشروطهم وسجل طلباتهم.",
+  o:"يحتاج مشترو الجملة إلى خصومات الكميات وشروط الائتمان وعروض الأسعار وإعادة الطلب السريعة. نبني ذلك في المنصة ونربط الكتالوج والمخزون والطلبات بنظام ERP، فيصل كل طلب مباشرة إلى التنفيذ والمحاسبة.",
+  c:["متاجر B2B","طلبات الجملة","تسعير متدرج وخاص بالعميل","كتالوجات مرتبطة بـ ERP"],
+  u:["نقل طلبات الموزعين من الهاتف والبريد إلى الإنترنت","تطبيق تسعير الفئات على كتالوج كبير","ربط متجر الجملة بـ SAP أو Odoo أو غيرهما"]},
+ {t:"مراكز الاتصال والاتصال عبر الإنترنت", s:"أنظمة هاتف سحابية بتوجيه ذكي وتسجيل للمكالمات وتقارير فورية للطوابير.",
+  o:"يحتفظ الموظف بالتحويلة نفسها في المكتب أو المنزل أو أثناء التنقل. نصمم القوائم الصوتية والطوابير وقواعد التوجيه وفق طريقة عمل فريقك الفعلية، ويرى المشرفون أوقات الانتظار والمكالمات الفائتة والأداء لحظة بلحظة.",
+  c:["مقسم سحابي وخطوط SIP","الرد الآلي وتوجيه المكالمات","تسجيل المكالمات والجودة","الهواتف البرمجية والسماعات"],
+  u:["فرق دعم موزعة على عدة مواقع","استبدال مقسم هاتفي قديم","رد آلي يجيب عن الأسئلة المتكررة"]},
+ {t:"النسخ الاحتياطي والتعافي من الكوارث", s:"نسخ احتياطية نستعيدها بانتظام، لتتأكد أنها تعمل قبل أن تحتاجها.",
+  o:"النسخة الاحتياطية التي لم تُستعد قط مجرد أمل. نتفق كتابيًا على أهداف نقطة الاستعادة ووقت الاستعادة (RPO وRTO)، ونحمي بياناتك بنسخ خارجية غير قابلة للتعديل ضد برامج الفدية، مع دليل استعادة خطوة بخطوة لفريقك.",
+  c:["النسخ الاحتياطي","التعافي من الكوارث","حماية البيانات","استمرارية الأعمال"],
+  u:["التعافي من برامج الفدية دون دفع فدية","استعادة خادم إنتاج متعطل","تلبية متطلبات الاحتفاظ والتدقيق"]},
+ {t:"الاستشارات التقنية والدعم الفني", s:"مشورة من خبراء ومساندة عملية، من التدقيق المخطط له إلى الأعطال العاجلة.",
+  o:"أحيانًا تحتاج إلى مهندس خبير يتخذ القرار، لا إلى مشروع كامل. المهندسون الذين يبنون الأنظمة هم أنفسهم من يدعمونها. اختر الدعم عند الطلب أو الاشتراك الشهري أو الاستجابة للحوادث.",
+  c:["الاستشارات التقنية","الدعم الفني","مراجعة البنية التحتية","حل الأعطال وتحسين الأداء"],
+  u:["تدقيق وتقييم تقني مستقل","اختيار التقنيات دون انحياز لمورّد","دعم مستمر باشتراك شهري"]},
+ {t:"الأمن السيبراني", s:"ممارسة متخصصة في الأمن السيبراني ضمن خططنا القادمة.", soon:true}
+]};
+
+const STEPS = {
+ en:[["Survey","We map your servers, network, accounts, backups and risks, then rank what actually threatens the business.","You receive: an assessment report"],
+     ["Design","A written architecture with costs, migration order, a rollback plan and agreed recovery targets.","You receive: a signed-off plan"],
+     ["Build & move","Work happens in scheduled windows, with parallel running and checks before anything old is switched off.","You receive: a working system"],
+     ["Run & improve","Monitoring, patching, regular restore tests and a roadmap reviewed with your team.","You receive: a monthly review"]],
+ ar:[["المسح","نحصر خوادمك وشبكتك وحساباتك ونسخك الاحتياطية والمخاطر، ثم نرتب ما يهدد عملك فعلًا.","تستلم: تقرير تقييم"],
+     ["التصميم","تصميم مكتوب بالتكاليف وترتيب النقل وخطة التراجع وأهداف الاستعادة المتفق عليها.","تستلم: خطة معتمدة"],
+     ["البناء والنقل","ننفذ في نوافذ زمنية محددة، مع تشغيل متوازٍ وتحقق قبل إيقاف أي نظام قديم.","تستلم: نظامًا يعمل"],
+     ["التشغيل والتحسين","مراقبة وتحديثات واختبارات استعادة دورية وخارطة طريق نراجعها مع فريقك.","تستلم: مراجعة شهرية"]]
+};
+
+const PRIN = {
+ en:[["Engineers you can name","You talk to the person who built your environment. Every account has a lead engineer and a documented runbook."],
+     ["Security in the baseline","Hardening, updates and least-privilege access are part of every delivery, never an add-on sold later."],
+     ["Commitments in writing","Response times, recovery targets and maintenance windows are written down, measured and reported."]],
+ ar:[["مهندس تعرفه بالاسم","تتحدث مع من بنى أنظمتك. لكل عميل مهندس مسؤول ودليل تشغيل موثق."],
+     ["الأمان من الأساس","التحصين والتحديثات وصلاحيات الحد الأدنى جزء من كل تسليم، لا إضافة تُباع لاحقًا."],
+     ["التزامات مكتوبة","أوقات الاستجابة وأهداف الاستعادة ونوافذ الصيانة مكتوبة ومقاسة وتصلك تقاريرها."]]
+};
+
+const IND = {
+ en:["Finance & fintech","Logistics & freight","Healthcare clinics","Manufacturing","Wholesale & distribution","Retail groups","Professional services","Government suppliers"],
+ ar:["المالية والتقنية المالية","الخدمات اللوجستية والشحن","العيادات والرعاية الصحية","التصنيع","الجملة والتوزيع","مجموعات التجزئة","الخدمات المهنية","موردو القطاع الحكومي"]
+};
+
+const T = {
+ en:{
+  "draft":"Design draft · contact details are placeholders",
+  "nav.services":"Services","nav.approach":"Approach","nav.why":"Why us","nav.industries":"Industries","nav.contact":"Contact",
+  "hero.tag":"IT infrastructure · Software · Integration",
+  "hero.h1":"Technology built for the <em>horizon</em> ahead of you.",
+  "hero.lede":"Taibah Horizon Tech designs, builds and runs the systems businesses depend on: cloud and servers, networks, integrations, custom software and support.",
+  "cta.talk":"Talk to an engineer","cta.explore":"Explore services",
+  "ro.time":"Local time · KSA","ro.days":"Working days","ro.daysv":"Sat – Thu","ro.prac":"Practices","ro.pracv":"10 active · 1 planned",
+  "svc.tag":"What we do","svc.h2":"Ten practices, one accountable team.","svc.p":"Every engagement has a named engineer, a written design and clear escalation paths. Open any practice to see what it covers.",
+  "svc.cov":"What it covers","svc.use":"When you need it","svc.soon":"Coming soon",
+  "ap.tag":"How we work","ap.h2":"From first survey to steady operation.","ap.p":"Four stages, each ending with something you can hold: a report, a plan, a working system, a monthly review.",
+  "why.tag":"Why Taibah Horizon","why.h2":"Technology you can stop worrying about.","why.p":"We work with teams where an hour of downtime has a real cost, so reliability is part of the design from the first day.",
+  "ind.tag":"Industries","ind.h2":"Environments we know well.","ind.p":"We adapt the same engineering discipline to the rules and rhythms of each sector.",
+  "ct.tag":"Contact","ct.h2":"Tell us what you are planning, or what is breaking.","ct.p":"Send a short brief and a senior engineer will reply within one business day.",
+  "ct.email":"Email","ct.phone":"Phone","ct.office":"Office","ct.officev":"[Street, district, city], Saudi Arabia","ct.hours":"Hours","ct.hoursv":"Saturday to Thursday · [hours to confirm]",
+  "f.name":"Full name","f.company":"Company","f.email":"Work email","f.phone":"Phone","f.need":"What do you need?","f.pick":"Choose a service","f.msg":"Tell us about your setup","f.send":"Send request",
+  "f.note":"A real engineer replies, not an autoresponder.","f.done":"Thanks. This is a preview, so the form will be connected once hosting is set up.",
+  "ft.about":"Taibah Horizon Tech Establishment","ft.aboutp":"Managed IT, cloud, integration and software engineering for businesses in Saudi Arabia and the Gulf.","ft.company":"Company",
+  "ft.rights":"© 2026 Taibah Horizon Tech Establishment","ft.cr":"CR No. [to be added]","lang":"العربية"
+ },
+ ar:{
+  "draft":"مسودة تصميم · بيانات التواصل مؤقتة",
+  "nav.services":"الخدمات","nav.approach":"منهجيتنا","nav.why":"لماذا نحن","nav.industries":"القطاعات","nav.contact":"تواصل معنا",
+  "hero.tag":"البنية التحتية · البرمجيات · التكامل",
+  "hero.h1":"تقنية تُبنى من أجل <em>الأفق</em> الذي ينتظرك.",
+  "hero.lede":"تصمم طيبة هورايزن تك الأنظمة التي تعتمد عليها الأعمال وتبنيها وتشغّلها: السحابة والخوادم، والشبكات، وربط الأنظمة، والبرمجيات المخصصة، والدعم الفني.",
+  "cta.talk":"تحدث مع مهندس","cta.explore":"استعرض الخدمات",
+  "ro.time":"التوقيت المحلي · السعودية","ro.days":"أيام العمل","ro.daysv":"السبت – الخميس","ro.prac":"الخدمات","ro.pracv":"١٠ متاحة · ١ قادمة",
+  "svc.tag":"ماذا نقدم","svc.h2":"عشر خدمات، وفريق واحد مسؤول.","svc.p":"لكل مشروع مهندس مسؤول وتصميم مكتوب ومسار تصعيد واضح. افتح أي خدمة لترى ما تشمله.",
+  "svc.cov":"ما تشمله","svc.use":"متى تحتاجها","svc.soon":"قريبًا",
+  "ap.tag":"كيف نعمل","ap.h2":"من المسح الأول إلى التشغيل المستقر.","ap.p":"أربع مراحل، تنتهي كل منها بشيء ملموس: تقرير، ثم خطة، ثم نظام يعمل، ثم مراجعة شهرية.",
+  "why.tag":"لماذا طيبة هورايزن","why.h2":"تقنية لا تحتاج أن تقلق بشأنها.","why.p":"نعمل مع فرق تكلّفها ساعة التوقف الواحدة ثمنًا حقيقيًا، لذلك تبدأ الاعتمادية من أول يوم في التصميم.",
+  "ind.tag":"القطاعات","ind.h2":"بيئات نعرفها جيدًا.","ind.p":"نطبّق الانضباط الهندسي نفسه مع مراعاة أنظمة كل قطاع وإيقاعه.",
+  "ct.tag":"تواصل معنا","ct.h2":"أخبرنا بما تخطط له، أو بما يتعطل لديك.","ct.p":"أرسل نبذة قصيرة وسيرد عليك مهندس خبير خلال يوم عمل واحد.",
+  "ct.email":"البريد","ct.phone":"الهاتف","ct.office":"المكتب","ct.officev":"[الشارع، الحي، المدينة]، المملكة العربية السعودية","ct.hours":"ساعات العمل","ct.hoursv":"من السبت إلى الخميس · [تُحدد لاحقًا]",
+  "f.name":"الاسم الكامل","f.company":"الشركة","f.email":"البريد الإلكتروني للعمل","f.phone":"الهاتف","f.need":"ما الذي تحتاجه؟","f.pick":"اختر خدمة","f.msg":"أخبرنا عن أنظمتك الحالية","f.send":"أرسل الطلب",
+  "f.note":"يرد عليك مهندس حقيقي، لا رد آلي.","f.done":"شكرًا لك. هذه نسخة معاينة، وسيُربط النموذج بعد إعداد الاستضافة.",
+  "ft.about":"مؤسسة طيبة هورايزن للتقنية","ft.aboutp":"خدمات تقنية المعلومات المُدارة والسحابة والتكامل وهندسة البرمجيات للشركات في المملكة العربية السعودية والخليج.","ft.company":"الشركة",
+  "ft.rights":"© 2026 مؤسسة طيبة هورايزن للتقنية","ft.cr":"السجل التجاري: [يُضاف لاحقًا]","lang":"English"
+ }
+};
+
+let lang = "en";
+const $ = s => document.querySelector(s);
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render(){
+  const t = T[lang], svc = SERVICES[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-i18n]").forEach(el => { const v = t[el.dataset.i18n]; if (v) el.textContent = v; });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t[el.dataset.i18nHtml]; });
+  $("#langBtn").innerHTML = lang === "en" ? '<span class="alt">العربية</span>' : 'English';
+  $("#langBtn").setAttribute("lang", lang === "en" ? "ar" : "en");
+
+  const open = [...document.querySelectorAll(".svc details")].map(d => d.open);
+  $("#svcList").innerHTML = svc.map((s,i) => s.soon
+    ? `<details class="soon"><summary tabindex="-1" onclick="return false"><h3>${esc(s.t)}</h3><p>${esc(s.s)}</p><span class="pm">${t["svc.soon"]}</span></summary></details>`
+    : `<details${open[i] || (!open.length && i===0) ? " open" : ""}><summary><h3>${esc(s.t)}</h3><p>${esc(s.s)}</p><span class="pm" aria-hidden="true">+</span></summary>
+       <div class="body"><p class="ov">${esc(s.o)}</p><div><h4>${t["svc.cov"]}</h4><ul class="chips">${s.c.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+       <h4>${t["svc.use"]}</h4><ul class="uses">${s.u.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div></details>`).join("");
+
+  const names = svc.map(s => s.t);
+  $("#marq").innerHTML = [...names, ...names].map(n => `<span>${esc(n)}</span>`).join("");
+
+  $("#spine").innerHTML = STEPS[lang].map((s,i) => `<div class="step"><div class="hd"><span class="no">0${i+1}</span>${esc(s[0])}</div><div class="bd">${esc(s[1])}<span class="out">${esc(s[2])}</span></div></div>`).join("");
+
+  $("#prin").innerHTML = PRIN[lang].map(p => `<div><svg aria-hidden="true"><use href="#mark"/></svg><h3>${esc(p[0])}</h3><p>${esc(p[1])}</p></div>`).join("");
+
+  $("#indList").innerHTML = IND[lang].map((x,i) => `<li>${esc(x)}<small>${String(i+1).padStart(2,"0")}</small></li>`).join("");
+
+  const sel = $("#f-need"), cur = sel.selectedIndex;
+  sel.innerHTML = `<option value="">${t["f.pick"]}</option>` + svc.filter(s=>!s.soon).map((s,i)=>`<option value="${i}">${esc(s.t)}</option>`).join("");
+  if (cur > 0) sel.selectedIndex = cur;
+  $("#ftSvc").innerHTML = svc.filter(s=>!s.soon).map(s=>`<li><a href="#services">${esc(s.t)}</a></li>`).join("");
+  tick();
+}
+
+function tick(){
+  try {
+    const f = new Intl.DateTimeFormat(lang === "ar" ? "ar-SA-u-nu-arab" : "en-GB", {timeZone:"Asia/Riyadh", hour:"2-digit", minute:"2-digit", hour12:false});
+    $("#clock").textContent = f.format(new Date()) + (lang === "ar" ? " ت.ع+٣" : " UTC+3");
+  } catch(e) {}
+}
+setInterval(tick, 20000);
+
+// Sun and arc rise with scroll: --p goes from 0 (below the horizon) to 1 (fully risen)
+const hz = document.querySelector(".horizon");
+const still = window.matchMedia("(prefers-reduced-motion: reduce)");
+let raf = 0;
+function rise(){
+  raf = 0;
+  if (still.matches) { hz.style.setProperty("--p", 1); return; }
+  const vh = window.innerHeight, top = hz.getBoundingClientRect().top;
+  const p = 1 - (top - vh * 0.3) / (vh * 0.55);
+  hz.style.setProperty("--p", Math.min(1, Math.max(0.3, p)).toFixed(3));
+}
+window.addEventListener("scroll", () => { if (!raf) raf = requestAnimationFrame(rise); }, {passive:true});
+window.addEventListener("resize", rise);
+rise();
+
+$("#langBtn").addEventListener("click", () => {
+  lang = lang === "en" ? "ar" : "en";
+  try { localStorage.setItem("th-lang", lang); } catch(e) {}
+  render();
+});
+$("#form").addEventListener("submit", e => { e.preventDefault(); $("#fnote").textContent = T[lang]["f.done"]; });
+
+try { lang = location.hash === "#ar" ? "ar" : (localStorage.getItem("th-lang") || "en"); } catch(e) { lang = location.hash === "#ar" ? "ar" : "en"; }
+render();
+</script>
+
+</body>
+</html>
